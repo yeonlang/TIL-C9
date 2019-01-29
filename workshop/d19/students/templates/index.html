@@ -7,11 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Post index</h1>
-    <a href='/posts/new/'>new</a>
+    <h1>Student index</h1>
+    <a href='/students/new/'>new</a>
     <ul>
-    {% for post in posts %}
-        <li><a href="/posts/{{ post.pk }}/">{{post.title}}</a></li>
+    {% for student in students %}
+        <li><a href="/students/{{ student.pk }}/">{{student.name}}</a></li>
     {% endfor %}
     </ul>
 </body>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Student detail</h1>
+    <p>name : {{student.name}}</p>
+    <p>email : {{student.email}} </p>
+    <p>birthday : {{student.birthday}}</p>
+    <p>age : {{student.age}}</p>
+    <a href="/students/">List</a>
+    <a href="/students/{{ student.pk }}/delete">Delete</a>
+    <a href="/students/{{ student.pk }}/edit">Edit</a>
+</body>
+</html>
