@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block container %}
+
+    <img src="{% static 'tree.jpg' %}">
+    <h1>Post index</h1>
+    <a href='{% url "posts:new" %}'>new</a>
+    <ul>
+    {% for post in posts %}
+        <li><a href='{% url "posts:detail" post.pk %}'>{{post.title}}</a></li>
+    {% endfor %}
+    </ul>
+    
+{% endblock %}
