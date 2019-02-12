@@ -9,13 +9,14 @@
 <body>
     {{ form.non_field_errors }}
     <form method="post">
-        {% csrf_token %}.
-        
+        {% csrf_token %}
         <div>
-            {{ form.title }} 
+            {{ form.name.label_tag }}
+            {{ form.name }} 
         </div>
         <div>
-            {{ form.content }}
+            {{ form.age.label_tag }}
+            {{ form.age }}
         </div>
         <input type="submit" value="Submit"/>
     </form>
