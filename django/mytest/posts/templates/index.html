@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block container %}
+
+    <h1>Post index</h1>
+    <ul>
+    {% for post in posts %}
+        <li><a href="{{post.pk}}"> {{post.title}} </a></li>
+    {% endfor %}
+    </ul>
+    
+{% endblock %}

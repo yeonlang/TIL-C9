@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block container %}
+    <li>{{post.title}}</li>
+    <li>{{post.content}}</li>
+    <a href="{{post.pk}}/delete">삭제</a>
+{% endblock %}
