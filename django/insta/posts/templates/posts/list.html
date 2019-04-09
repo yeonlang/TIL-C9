@@ -2,10 +2,12 @@
 {% block container %}
 
 <h1>Post List</h1>
-
+<p><a href={% url 'posts:create' %}> new </a></p>
+    
 {% for post in posts %}
 
 {% include 'posts/_post.html' %}
+
 
 {% endfor %}
 
