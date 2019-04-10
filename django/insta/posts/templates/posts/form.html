@@ -2,6 +2,7 @@
 {% load bootstrap4 %}
 {% block container %}
 
+<h1>Form</h1>
 <form action="" method ='POST' enctype="multipart/form-data">
     {% csrf_token %}
     {% bootstrap_form post_form %}
