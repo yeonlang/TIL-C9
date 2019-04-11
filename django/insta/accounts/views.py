@@ -1,7 +1,9 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
+from django.contrib.auth import get_user_model
+
 # Create your views here.
 
 def login(request):
@@ -32,3 +34,8 @@ def signup(request):
     else:
         signup_form = UserCreationForm()
     return render(request, 'accounts/signup.html', {'signup_form': signup_form })
+    
+def people(request, username):
+    #get_user_model()-> User class 가 return
+    people = get_object_or_404(get_user_model(), username = username)
+    return render(request, 'accounts/people.html', {'people':people})
