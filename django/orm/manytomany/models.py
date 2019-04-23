@@ -6,7 +6,7 @@ class Doctor(models.Model):
     
 class Patient(models.Model):
     name = models.TextField()
-    doctors = models.ManyToManyField(Doctor, related_name = 'patients')
+    doctors = models.ManyToManyField(Doctor, related_namdoe = 'patients')
     
 # Patient에 원래 추가해주어야함     
 # doctors = models.ManyToManyField(Doctor, related_name = 'patients', through='Reservation')
