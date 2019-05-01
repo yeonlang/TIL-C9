@@ -13,10 +13,8 @@ def signup(request):
             user = form.save()
             auth_login(request, user)
             return redirect('posts:list')
-            
     else:
         form = UserCreationForm()
-        
     return render(request, 'signup.html', {'form':form})
     
 # Session Create
@@ -37,4 +35,5 @@ def login(request):
 def logout(request):
     auth_logout(request)
     return redirect('posts:list')
+
     

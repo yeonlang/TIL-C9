@@ -9,18 +9,15 @@ def new(request):
         title = request.POST.get('title')
         content = request.POST.get('content')
         image = request.FILES.get('image')
-        
         #DB insert
         post = Post(title=title, content=content, image=image)
         post.save()
-    
         return redirect('posts:detail', post.pk)
     else:
         return render(request, 'new.html')
 
 def index(request):
     posts = Post.objects.all()
-    
     return render(request, 'index.html', {'posts': posts})
     
 def detail(request, post_id):
@@ -62,19 +59,15 @@ def update(request, post_id):
 def comments_create(request, post_id):
     #댓글을 달 게시물
     post = Post.objects.get(pk=post_id)
-    
     #form에서 넘어온 댓글 내용
     content =request.POST.get('content')
-    
     #댓글 생성 및 저장
     comment=Comment(post=post, content=content)
     comment.save()
-    
     return redirect('posts:detail',post_id)
       
     
 def comments_delete(request, post_id, comment_id):
     comment = Comment.objects.get(pk=comment_id)
     comment.delete()
-    
     return redirect('posts:detail', post_id)

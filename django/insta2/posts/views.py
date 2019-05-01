@@ -6,6 +6,7 @@ from .models import Post
 from .models import comment as Comment
 from django.db import transaction
 from itertools import chain
+from django.http import JsonResponse
 
 @login_required
 def list(request):
@@ -100,7 +101,11 @@ def like(request, post_id):
     if request.user in post.like_users.all():
         #좋아요 취소
         post.like_users.remove(request.user)
+        liked = False
     else: 
         #좋아요
         post.like_users.add(request.user)
-    return redirect('posts:list')
+        liked = True
+    # return redirect('posts:list')    
+    return JsonResponse({'liked' : liked, 'count': post.like_users.count()})
+    
